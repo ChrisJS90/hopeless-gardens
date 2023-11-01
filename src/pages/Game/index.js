@@ -6,17 +6,21 @@ import locations from "../../data/story";
 
 const Game = () => {
 
-const [location, setLocation] = useState("opening")
-const [storyBeat, setStoryBeat] = useState();
-const [textInput, setTextInput] = useState()
+const gameStart = locations[0]
+const [location, setLocation] = useState(gameStart)
+const [storyBeat, setStoryBeat] = useState("");
+const [textInput, setTextInput] = useState("")
 
 function handleChange(e) {
+    e.preventDefault()
     setTextInput(e.target.value)
 }
 
 function handleSubmit(e) {
+    e.preventDefault()
     setStoryBeat()
 }
+console.log('check game loop')
 
     return(
         <>
