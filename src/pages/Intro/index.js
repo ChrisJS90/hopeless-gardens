@@ -5,7 +5,7 @@ const Intro = () => {
     return (
         <div>
             <p>You have been called in to restore a garden that was vandalised prior to its grand reopening</p>
-            <button onClick={() => navigate("/game") }>
+            <button onClick={() => navigate("/opening") }>
                 Start Game
             </button>
         </div>

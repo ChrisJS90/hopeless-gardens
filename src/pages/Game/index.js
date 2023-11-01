@@ -25,6 +25,7 @@ console.log('check game loop')
     return(
         <>
             <StoryArea loc={location} />
+            
             <form className="typeArea" onSubmit={handleSubmit}>
                 <span>
                     <input type="text" onChange={handleChange}/>
