@@ -8,7 +8,7 @@ import "./style.css"
 const Game = () => {
 
     const gameStart = locations[1];
-    const [location, setLocation] = useState(gameStart);
+    const [locat, setLocat] = useState(gameStart);
     const [storyBeat, setStoryBeat] = useState("");
     const [textInput, setTextInput] = useState("");
     const [response, setResponse] = useState([]);
@@ -20,22 +20,29 @@ const Game = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        let res = interaction(textInput, location)
+        console.log(locations)
+        let res = interaction(textInput, locat)
+        if(res.includes("move")){
+            const targetLoc = res.slice(12)
+            const newLoc = locations.find((e) => e.location === targetLoc)
+            console.log(newLoc)
+            setLocat(newLoc)
+        }
         if(response.length === 0){
             setResponse([res])
-        } else if(response.length < 5 && res != response[response.length - 1]) {
+        } else if(response.length < 5 && res !== response[response.length - 1]) {
             setResponse([...response, res])
         } else {
             const newArr = response.slice(1)
             newArr.push(res)
             setResponse(newArr)
         }
-        setStoryBeat()
+
     };
 
     return (
         <>
-            <StoryArea loc={location} />
+            <StoryArea loc={locat} />
 
             <div className="responseArea">
                 <ul>

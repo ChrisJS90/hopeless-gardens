@@ -1,9 +1,10 @@
 import locations from "../data/story";
 
 
-function interaction(input, location) {
+function interaction(input, locat) {
     const uI = input.toLowerCase();
-    const interactables = location.poi.map((e) => e.id)
+    const interactables = locat.poi.map((e) => e.id)
+    const areas = locations.map((e) => e.location)
     console.log(interactables)
     let res = ""
 
@@ -24,6 +25,13 @@ function interaction(input, location) {
 
     if (uI.includes("move")) {
         // if statements for movement
+        const noun = sliceNoun(uI);
+        if(areas.includes(noun)){
+            res = `You move to ${noun}`
+        } else {
+            res = `${noun} not found`
+        }
+
     }
     else if (uI.includes("search")) {
         // if statements for seraching
@@ -40,7 +48,7 @@ function interaction(input, location) {
         console.log(typeof noun)
         console.log(noun)
         if(interactables.includes(noun)) {
-            const item = location.poi.find((e) => e.id === noun);
+            const item = locat.poi.find((e) => e.id === noun);
             console.log(item)
             res = item.initial
         } else {

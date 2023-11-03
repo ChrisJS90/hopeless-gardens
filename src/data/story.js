@@ -47,6 +47,12 @@ const locations = [{
             afterPuz: "The vines are so red they could almost be made of blood. They are covered in short, thick thorns. There is no escape."
         }
     ]
+},
+{
+    id: 3,
+    location: "rose path",
+    intro: "Those vandals ripped the heads off of most of the bushes. You consider ripping bits off of them. The sculptures are in pieces, but still hold some hint of brilliance.",
+
 }]
 
 export default locations
