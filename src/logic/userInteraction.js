@@ -2,10 +2,12 @@ import locations from "../data/story";
 
 
 function interaction(input, locat) {
+    const locationsList = locations
     const uI = input.toLowerCase();
     const interactables = locat.poi.map((e) => e.id)
-    const areas = locations.map((e) => e.location)
-    console.log(interactables)
+    console.log("locations: ", locations)
+    const areas = locationsList.map((e) => e.location)
+    console.log(areas)
     let res = ""
 
     function sliceNoun(text) {
@@ -35,6 +37,15 @@ function interaction(input, locat) {
     }
     else if (uI.includes("search")) {
         // if statements for seraching
+        const noun = sliceNoun(uI);
+        if(interactables.includes(noun)) {
+            const item = locat.poi.find((e) => e.id === noun)
+            if(!item.search) {
+                res = `You cannot search ${noun}`
+            } else {
+                res = [item.search, item.item]
+            }
+        }
     }
     else if (uI.includes("pick")) {
         // if statements for picking up
@@ -50,7 +61,11 @@ function interaction(input, locat) {
         if(interactables.includes(noun)) {
             const item = locat.poi.find((e) => e.id === noun);
             console.log(item)
-            res = item.initial
+            if(!item.initial) {
+                res = 'placeholder'
+            } else {
+                res = item.initial
+            }
         } else {
             res = `You do not find ${noun}`
         }
