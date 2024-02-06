@@ -47,6 +47,23 @@ const locations = [{
             afterPuz: "The vines are so red they could almost be made of blood. They are covered in short, thick thorns. There is no escape."
         }
     ]
+},
+{
+    id: 3,
+    location: "rose path",
+    intro: "Those vandals ripped the heads off of most of the bushes. You consider ripping bits off of them. The sculptures are in pieces, but still hold some hint of brilliance.",
+    poi: [
+        {
+            id: "pots",
+            initial: "You are careful not to cut yourself as you sift through the broken pottery and glass. You hope you can repair some of them. The pots that aren’t broken are shaped like cute animals holding bouquets. The sloth is particularly cute."
+        },
+        {
+            id: "farther pot",
+            search: "It’s drawing you in. It looks as if there’s something buried in it. You can’t resist shoving your hand in. The soil is wet, almost slimy. You keep putting your hand deeper. The pot didn’t look that deep. But you keep reaching in. You’re almost up to your elbow now. The pot definitely shouldn’t be this deep. You’re starting to panic now. You want to pull your hand out, but you know you must only push it in deeper. Finally, you grasp onto something. And now you know you are allowed to draw your arm out. You pull it out quickly, lest the pot changes its mind. OBTAINED: YELLOW HAT.",
+            item: "yellow hat"
+        }
+    ],
+
 }]
 
 export default locations

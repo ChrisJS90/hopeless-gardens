@@ -1,10 +1,13 @@
 import locations from "../data/story";
 
 
-function interaction(input, location) {
+function interaction(input, locat) {
+    const locationsList = locations
     const uI = input.toLowerCase();
-    const interactables = location.poi.map((e) => e.id)
-    console.log(interactables)
+    const interactables = locat.poi.map((e) => e.id)
+    console.log("locations: ", locations)
+    const areas = locationsList.map((e) => e.location)
+    console.log(areas)
     let res = ""
 
     function sliceNoun(text) {
@@ -24,9 +27,25 @@ function interaction(input, location) {
 
     if (uI.includes("move")) {
         // if statements for movement
+        const noun = sliceNoun(uI);
+        if(areas.includes(noun)){
+            res = `You move to ${noun}`
+        } else {
+            res = `${noun} not found`
+        }
+
     }
     else if (uI.includes("search")) {
         // if statements for seraching
+        const noun = sliceNoun(uI);
+        if(interactables.includes(noun)) {
+            const item = locat.poi.find((e) => e.id === noun)
+            if(!item.search) {
+                res = `You cannot search ${noun}`
+            } else {
+                res = [item.search, item.item]
+            }
+        }
     }
     else if (uI.includes("pick")) {
         // if statements for picking up
@@ -40,9 +59,13 @@ function interaction(input, location) {
         console.log(typeof noun)
         console.log(noun)
         if(interactables.includes(noun)) {
-            const item = location.poi.find((e) => e.id === noun);
+            const item = locat.poi.find((e) => e.id === noun);
             console.log(item)
-            res = item.initial
+            if(!item.initial) {
+                res = 'placeholder'
+            } else {
+                res = item.initial
+            }
         } else {
             res = `You do not find ${noun}`
         }
