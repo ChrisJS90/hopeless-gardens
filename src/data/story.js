@@ -1,7 +1,7 @@
 const locations = [{
     id: 1,
     location: "opening",
-    intro: "You park in the exmpty gravel parking lot and turn off the engine. \
+    intro: "You park in the empty gravel parking lot and turn off the engine. \
     You grab your backpack from the back seat and lock the doors.\
     In front of you is a tall hedge wall with a large metal gate. \
     You are in front of the soon to reopen Hope Gardens. \
